@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# it installs pipewire audio server support and removes pulseaudio
+# created by pavroo <pavroo@onet.eu> December 30, 2023
+# under GNU GPL 3
+
+# all desktops
+sudo apt install pipewire pipewire-audio pipewire-pulse libspa-0.2-bluetooth pipewire-jack gstreamer1.0-pipewire pipewire-v4l2 pipewire-libcamera vlc-plugin-pipewire libpipewire-0.3-modules-x11 
+
+# extra packages for kde plasma
+KDE=`dpkg-query -l | grep sparky-desktop-kde`
+if [ "$KDE" != "" ]; then
+sudo apt install libkpipewire5 qml-module-org-kde-pipewire
+fi 
+
+exit 0
